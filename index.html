@@ -51,12 +51,13 @@ a{color:var(--jade);text-underline-offset:3px}
 .zzz i:nth-child(1){font-size:14px;right:30px;top:40px}.zzz i:nth-child(2){font-size:19px;right:14px;top:20px}.zzz i:nth-child(3){font-size:25px;right:-6px;top:-6px}
 html.sleeping .avatar{overflow:visible}
 html.sleeping .avatar img:first-child,html.sleeping .clip-v,html.sleeping .sleep-img{border-radius:50%}
-html.sleeping .sleep-img{opacity:1}
+html.sleeping.nosleepclip .sleep-img{opacity:1}
+html.sleeping.nosleepclip .avatar{animation:breathe 4s ease-in-out infinite}
 html.sleeping .zzz{opacity:1}
 html.sleeping .zzz i{animation:zz 3s ease-in-out infinite}
 html.sleeping .zzz i:nth-child(2){animation-delay:1s}html.sleeping .zzz i:nth-child(3){animation-delay:2s}
 @keyframes zz{0%{opacity:0;transform:translate(0,8px) scale(.8)}30%{opacity:.9}100%{opacity:0;transform:translate(10px,-18px) scale(1.1)}}
-html.sleeping .avatar{animation:breathe 4s ease-in-out infinite;box-shadow:0 0 0 2px rgba(142,197,255,.35),0 0 26px -6px rgba(142,197,255,.4)}
+html.sleeping .avatar{box-shadow:0 0 0 2px rgba(142,197,255,.35),0 0 26px -6px rgba(142,197,255,.4)}
 @keyframes breathe{50%{transform:scale(1.025) translateY(2px)}}
 html.sleeping #orb{opacity:.45;transition:opacity 1.2s}
 #orb{transition:opacity 1.2s}
@@ -240,7 +241,10 @@ footer .wrap{padding-block:64px 40px;display:flex;flex-wrap:wrap;justify-content
     <div class="avatar" id="avatar"><img src="avatar-poster.jpg" alt="Jade Hu" width="180" height="180">
       <video class="clip-v" data-m="idle" src="avatar-idle.mp4?v=2" muted loop playsinline preload="auto" aria-hidden="true"></video>
       <video class="clip-v" data-m="thinking" src="avatar-thinking.mp4?v=2" muted loop playsinline preload="auto" aria-hidden="true"></video>
-      <video class="clip-v" data-m="talking" src="avatar-talking.mp4?v=2" muted loop playsinline preload="auto" aria-hidden="true"></video>
+      <video class="clip-v" data-m="talking" src="avatar-talking.mp4?v=3" muted loop playsinline preload="auto" aria-hidden="true"></video>
+      <video class="clip-v" data-m="phone" src="avatar-phone.mp4" muted loop playsinline preload="auto" aria-hidden="true"></video>
+      <video class="clip-v" data-m="caught" src="avatar-caught.mp4" muted playsinline preload="auto" aria-hidden="true"></video>
+      <video class="clip-v" data-m="music" src="avatar-music.mp4" muted loop playsinline preload="auto" aria-hidden="true"></video>
       <img class="sleep-img" src="avatar-sleep.jpg" alt="" aria-hidden="true">
       <span class="zzz" aria-hidden="true"><i>z</i><i>z</i><i>z</i></span>
     </div>
@@ -283,7 +287,7 @@ footer .wrap{padding-block:64px 40px;display:flex;flex-wrap:wrap;justify-content
         <p><b>Problem.</b> Reps spend hours researching accounts and writing first emails before they talk to a buyer.</p>
         <p><b>What I built.</b> Upload a lead list. The agent reads each company's website, scores fit against the ideal customer profile, finds a "why now" signal, and drafts a short email and a call opener. A person approves, edits or skips every draft.</p>
         <p class="stack">Python · Streamlit · Claude API · fictional sample leads</p>
-        <p class="links-row"><a class="ext" href="https://jade-sales-copilot.streamlit.app/" target="_blank" rel="noopener">Try the live demo ↗</a><a class="ext" href="https://github.com/jadeyaohu/sales-copilot" target="_blank" rel="noopener">View code ↗</a><span class="soon">Live demo link coming soon</span></p>
+        <p class="links-row"><a class="ext" href="COPILOT_DEMO_URL" target="_blank" rel="noopener">Try the live demo ↗</a><a class="ext" href="https://github.com/jadeyaohu/sales-copilot" target="_blank" rel="noopener">View code ↗</a><span class="soon">Live demo link coming soon</span></p>
       </div>
     </details>
     <details class="row" id="p-matcher">
@@ -295,7 +299,7 @@ footer .wrap{padding-block:64px 40px;display:flex;flex-wrap:wrap;justify-content
         <p><b>What I found.</b> On Nov 1, 2026, 25 of the 26 lotteries marked "Active" were past their deadline, so the tool uses the deadline to decide what's open.</p>
         <div class="stats"><div class="stat"><b>1,754</b><span>lotteries since 2020</span></div><div class="stat"><b>2,150</b><span>buildings</span></div></div>
         <p class="stack">Python · pandas · Streamlit · NYC Open Data · HPD AMI table</p>
-        <p class="links-row"><a class="ext" href="https://jade-nyc-lottery-matcher.streamlit.app/" target="_blank" rel="noopener">Try the live demo ↗</a><a class="ext" href="https://github.com/jadeyaohu/nyc-housing-lottery-matcher" target="_blank" rel="noopener">View code ↗</a><span class="soon">Live demo link coming soon</span></p>
+        <p class="links-row"><a class="ext" href="MATCHER_DEMO_URL" target="_blank" rel="noopener">Try the live demo ↗</a><a class="ext" href="https://github.com/jadeyaohu/nyc-housing-lottery-matcher" target="_blank" rel="noopener">View code ↗</a><span class="soon">Live demo link coming soon</span></p>
       </div>
     </details>
     <details class="row" id="p-compliq">
@@ -342,6 +346,8 @@ footer .wrap{padding-block:64px 40px;display:flex;flex-wrap:wrap;justify-content
   <div class="cv" role="dialog" aria-modal="true" aria-labelledby="cv-title">
     <div class="cv-head"><h2 id="cv-title">Résumé</h2><button type="button" class="close" id="cv-close" aria-label="Close résumé">✕</button></div>
     <p class="cv-sub">Jade (Yao) Hu · New York · English / Mandarin · Authorized to work in the U.S.</p>
+    <h3>Summary</h3>
+    <p class="cv-p">Bilingual (English/Mandarin) seller and hands-on AI builder with 6+ years of client-facing experience, including 2+ years of outbound and founder-led sales. Built a startup's pipeline 0-to-1 (~100 new contacts a day, 20+ paying clients a month); now make ~60 calls and book ~20 tours a week. MS in Computer Science; builds AI chatbots, agents, and outreach workflows.</p>
     <h3>Experience</h3>
     <div class="job"><div class="jt"><b>Related Companies</b><span>Jan 2026 – now</span></div><i>Compliance &amp; Leasing Operations Specialist, Affordable Housing</i>
       <ul><li>~60 outbound and follow-up calls and ~20 tours booked a week.</li><li>Pipeline of 200–300+ applicants a month, each qualified against income and eligibility rules.</li><li>Help ~20 families a month move in.</li><li>Outreach and tracking automations that cut manual work by ~80% (Yardi, Smartsheet, Excel).</li></ul></div>
@@ -389,10 +395,16 @@ var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 /* avatar states: swap in expression images here when they're ready (e.g. AVATAR_IMG.talking="smile.jpg") */
 var AVATAR_IMG={idle:null,thinking:null,talking:null};
 var clips={}; avatarEl.querySelectorAll("video").forEach(function(v){clips[v.dataset.m]=v; v.addEventListener("error",function(){v.remove();delete clips[v.dataset.m]})});
-function mood(m){avatarEl.dataset.mood=m; if(reduce)return;
+/* avatar states. Looping: idle, thinking, talking, phone, sleep, music. One-shot: hello, caught, wake (then back to idle). */
+var ONCE={hello:1,caught:1,wake:1};
+function mood(m){
+  if(m==="idle"&&window.MUSIC&&MUSIC.on)m="music";
+  avatarEl.dataset.mood=m; if(reduce)return;
   var v=clips[m]||clips.idle; if(!v)return;
   Object.keys(clips).forEach(function(k){var c=clips[k]; if(c!==v){c.classList.remove("on");c.pause()}});
-  try{v.currentTime=0}catch(e){} var pr=v.play(); if(pr&&pr.catch)pr.catch(function(){}); v.classList.add("on");}
+  try{v.currentTime=0}catch(e){} var pr=v.play(); if(pr&&pr.catch)pr.catch(function(){}); v.classList.add("on");
+  if(ONCE[m]){v.onended=function(){if(avatarEl.dataset.mood===m)mood("idle")}}
+}
 mood("idle");
 function stream(el, html, done){
   var tmp=document.createElement("div");tmp.innerHTML=html;var plain=tmp.textContent,i=0;
@@ -455,26 +467,34 @@ window.MUSIC={on:false,level:0};
         if(ac&&ac.state==="suspended")ac.resume(); }catch(e){an=null}
       var pr=audio.play();
       (pr&&pr.then?pr:Promise.resolve()).then(function(){MUSIC.on=true;document.documentElement.classList.add("music-on");btn.setAttribute("aria-pressed","true");label.textContent="pause";
-        Object.keys(clips).forEach(function(k){clips[k].playbackRate=.85});loop();})
+        if(avatarEl.dataset.mood==="idle")mood("music");loop();})
       .catch(function(){label.textContent="tap again to play"});
     }else{
       audio.pause();MUSIC.on=false;document.documentElement.classList.remove("music-on");btn.setAttribute("aria-pressed","false");label.textContent="play music";
-      Object.keys(clips).forEach(function(k){clips[k].playbackRate=1});
+      if(avatarEl.dataset.mood==="music")mood("idle");
     }
   });
 })();
 
-/* sleep when nobody is around */
+/* when nobody is watching: phone after 8 s (or when the mouse leaves), asleep after 30 s.
+   Coming back: "caught" from the phone, "wake" from sleep. */
 window.SLEEP=false;
 (function(){
-  var timer=null, WAIT=20000, root=document.documentElement;
-  function canSleep(){return !busy && !(window.MUSIC&&MUSIC.on) && document.getElementById("cv").hidden}
-  function sleep(){ if(!canSleep()){arm();return} window.SLEEP=true; root.classList.add("sleeping"); Object.keys(clips).forEach(function(k){clips[k].pause()}) }
-  function wake(){ if(window.SLEEP){window.SLEEP=false; root.classList.remove("sleeping"); mood(avatarEl.dataset.mood||"idle")} arm() }
-  function arm(){ clearTimeout(timer); timer=setTimeout(sleep,WAIT) }
-  ["pointermove","pointerdown","keydown","scroll","touchstart","wheel"].forEach(function(ev){addEventListener(ev,wake,{passive:true})});
-  document.addEventListener("mouseleave",function(){clearTimeout(timer);timer=setTimeout(sleep,2500)});
-  document.addEventListener("visibilitychange",function(){if(document.hidden){clearTimeout(timer);timer=setTimeout(sleep,1500)}});
+  var away=null, nap=null, AWAY=8000, NAP=30000, root=document.documentElement, state="here";
+  function free(){return !busy && !(window.MUSIC&&MUSIC.on) && document.getElementById("cv").hidden}
+  function goPhone(){ if(state!=="here")return; if(!free()){arm();return} state="phone"; mood("phone") }
+  function goSleep(){ if(state==="sleep")return; if(!free()){arm();return} state="sleep"; window.SLEEP=true; root.classList.add("sleeping");
+    if(clips.sleep){mood("sleep")}else{root.classList.add("nosleepclip");Object.keys(clips).forEach(function(k){clips[k].pause()})} }
+  function back(){
+    if(state==="phone"){state="here"; mood(clips.caught?"caught":"idle")}
+    else if(state==="sleep"){state="here"; window.SLEEP=false; root.classList.remove("sleeping","nosleepclip"); mood(clips.wake?"wake":"idle")}
+    arm();
+  }
+  function arm(){ clearTimeout(away); clearTimeout(nap); away=setTimeout(goPhone,AWAY); nap=setTimeout(goSleep,NAP) }
+  var last=0; function activity(){ var n=Date.now(); if(state==="here"&&n-last<400)return; last=n; back() }
+  ["pointermove","pointerdown","keydown","scroll","touchstart","wheel"].forEach(function(ev){addEventListener(ev,activity,{passive:true})});
+  document.addEventListener("mouseleave",function(){clearTimeout(away);away=setTimeout(goPhone,2500)});
+  document.addEventListener("visibilitychange",function(){if(document.hidden){clearTimeout(away);away=setTimeout(goPhone,1000)}});
   arm();
 })();
 
@@ -482,7 +502,7 @@ window.SLEEP=false;
 (function(){var ph=["Ask me anything about my work","Is she technical?","What has she built with AI?","Why AI sales?","Can she cold call?"],i=0,c=0,del=false;
   if(reduce)return;
   (function tick(){var w=ph[i];
-    if(document.activeElement!==input&&!input.value){
+    if(document.activeElement!==input&&!input.value&&!window.SLEEP){
       if(!del){c++;input.placeholder=w.slice(0,c)+"|";if(c>=w.length){del=true;return setTimeout(tick,1600)}}
       else{c--;input.placeholder=w.slice(0,c)+"|";if(c<=0){del=false;i=(i+1)%ph.length}}
     }
